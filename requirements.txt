@@ -1,2 +1,8 @@
+amqp==2.2.1
+billiard==3.5.0.3
+celery==4.0.2
 Django==1.11.3
+kombu==4.0.2
 pytz==2017.2
+redis==2.10.5
+vine==1.1.4

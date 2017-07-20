@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import *
-
-from menu.models import *
+from models import Menu, Option
 
 
 """
     MENU
 """
-
 
 class ListMenu(ListView):
     template_name = "menu.html"
@@ -20,7 +17,7 @@ class ListMenu(ListView):
 
     def get_queryset(self):
         if self.request.user.is_authenticated():
-            qs = Menu.objects.filter(user = self.request.user)
+            qs = Menu.objects.filter(user=self.request.user)
             return qs
 
 list_menu = ListMenu.as_view()
