@@ -19,9 +19,17 @@ class MenuTest(TestCase):
 
     def test_show_menu(self):
         # Choose True or False (until 11 AM)
-        today_time = datetime.now()
-        qs = True if today_time.hour <= 10 and today_time.minute <= 60 else False
+        # before
+        today_hour = 10
+        today_minute = 10
+        qs = True if today_hour <= 10 and today_minute <= 60 else False
+        get_show_menu = self.menu.choose_menu()
+        self.assertEquals(get_show_menu, qs)
 
+        # after
+        today_hour = 12
+        today_minute = 12
+        qs = True if today_hour <= 10 and today_minute <= 60 else False
         get_show_menu = self.menu.choose_menu()
         self.assertEquals(get_show_menu, qs)
 
