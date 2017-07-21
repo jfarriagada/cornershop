@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6">
+
+        <h5><a href="{% url 'create_option' menu.id %}" class="btn btn-primary"> Agregar opción al menú. </a>
+        <a href="{% url 'list_menu' %}" class="btn btn-primary"> Lista Menú </a></h5>
+
+        Menú : {{ menu.created_at }}
+
+        <div>
+            <table class="table table-striped table-sm">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Descripción</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for o in option %}
+                    <tr>
+                        <td>{{ o.description }}</td>
+                        <td>
+                            <a href="{% url 'update_option' o.pk %}"><i class="fa fa-pencil"></i></a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

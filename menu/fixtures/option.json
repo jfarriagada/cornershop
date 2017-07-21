@@ -1,0 +1,72 @@
+[
+{
+  "model": "menu.option",
+  "pk": 1,
+  "fields": {
+    "menu": 1,
+    "description": "Opcion 1: Pastel de choclo, Ensalada y Postre",
+    "created_at": "2017-07-20T20:25:36.549Z",
+    "updated_at": "2017-07-20T20:25:36.549Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 2,
+  "fields": {
+    "menu": 1,
+    "description": "Opcion 2. Arroz con nugget de pollo, Ensalada y Postre",
+    "created_at": "2017-07-20T20:25:42.279Z",
+    "updated_at": "2017-07-20T20:25:42.279Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 3,
+  "fields": {
+    "menu": 1,
+    "description": "Opcion 3: Arroz con hamburguesa, Ensalada y Postre",
+    "created_at": "2017-07-20T03:19:11.373Z",
+    "updated_at": "2017-07-20T03:19:11.373Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 4,
+  "fields": {
+    "menu": 1,
+    "description": "Opcion 4: Ensalada premium de pollo y Postre",
+    "created_at": "2017-07-21T03:19:18.541Z",
+    "updated_at": "2017-07-21T03:19:18.542Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 5,
+  "fields": {
+    "menu": 2,
+    "description": "#opcion 1",
+    "created_at": "2017-07-21T03:38:57.338Z",
+    "updated_at": "2017-07-21T03:38:57.338Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 6,
+  "fields": {
+    "menu": 2,
+    "description": "#opcion 2",
+    "created_at": "2017-07-21T03:39:06.535Z",
+    "updated_at": "2017-07-21T03:39:06.535Z"
+  }
+},
+{
+  "model": "menu.option",
+  "pk": 7,
+  "fields": {
+    "menu": 2,
+    "description": "#opcion 3",
+    "created_at": "2017-07-21T03:39:13.642Z",
+    "updated_at": "2017-07-21T03:39:13.642Z"
+  }
+}
+]

@@ -1,0 +1,9 @@
+[
+{
+  "model": "menu.traderprofile",
+  "pk": 1,
+  "fields": {
+    "trader": 2
+  }
+}
+]

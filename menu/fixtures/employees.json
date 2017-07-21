@@ -1,0 +1,10 @@
+[
+{
+  "model": "menu.employee",
+  "pk": 1,
+  "fields": {
+    "rut": "11222333-4",
+    "email": "elson_brero@codeando.ando"
+  }
+}
+]
