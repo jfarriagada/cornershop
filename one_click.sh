@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "## LOAD INITIAL DATA ## "
-ls
+
 python manage.py loaddata menu/fixtures/users.json
 python manage.py loaddata menu/fixtures/trader_profile.json
 python manage.py loaddata menu/fixtures/employees.json
