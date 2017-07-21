@@ -1,0 +1,13 @@
+[
+{
+  "model": "menu.order",
+  "pk": 1,
+  "fields": {
+    "rut_employee": "11222333-4",
+    "option": 1,
+    "customization": "jugo natural.",
+    "extra_large": true,
+    "created_at": "2017-07-21T18:44:23.485Z"
+  }
+}
+]

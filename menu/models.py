@@ -49,14 +49,24 @@ class Menu(models.Model):
         """
         today_date = datetime.now()
         today_time = time(today_date.hour, today_date.minute, today_date.second)
-        qs = True if today_time.hour >= 10 and today_time.minute <= 60 else False
+        qs = True if today_time.hour <= 10 and today_time.minute <= 60 else False
         return qs
 
-    def is_update(self):
+    def is_updated(self):
         """
             Show if the menu has been updated
         """
-        qs = False if self.created_at == self.updated_at else True
+        created_at_time = time(self.created_at.hour, self.created_at.minute, self.created_at.second)
+        updated_at_time = time(self.updated_at.hour, self.updated_at.minute, self.updated_at.second)
+
+        qs = False if created_at_time == updated_at_time else True
+        return qs
+
+    def is_send(self):
+        """
+            Show if the menu has been sending
+        """
+        qs = True if self.send == True else False
         return qs
 
 
@@ -76,7 +86,10 @@ class Option(models.Model):
         """
             Show if the option has been updated
         """
-        qs = False if self.created_at == self.updated_at else True
+        created_at_time = time(self.created_at.hour, self.created_at.minute, self.created_at.second)
+        updated_at_time = time(self.updated_at.hour, self.updated_at.minute, self.updated_at.second)
+
+        qs = False if created_at_time == updated_at_time else True
         return qs
 
 
@@ -93,9 +106,11 @@ class Order(models.Model):
     def __str__(self):
         return self.rut_employee
 
+
 """
     SIGNALS to send email and slack
 """
+
 
 @receiver(post_save, sender=Menu)
 def post_menu(instance, **kwargs):
