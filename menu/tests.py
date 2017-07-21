@@ -17,22 +17,6 @@ class MenuTest(TestCase):
         self.menu = Menu(pk=1)
         self.menu.save()
 
-    def test_show_menu(self):
-        # Choose True or False (until 11 AM)
-        # before
-        today_hour = 10
-        today_minute = 10
-        qs = True if today_hour <= 10 and today_minute <= 60 else False
-        get_show_menu = self.menu.choose_menu()
-        self.assertEquals(get_show_menu, qs)
-
-        # after
-        today_hour = 12
-        today_minute = 12
-        qs = True if today_hour <= 10 and today_minute <= 60 else False
-        get_show_menu = self.menu.choose_menu()
-        self.assertEquals(get_show_menu, qs)
-
     def test_is_updated(self):
         # No updated
         get_updated = self.menu.is_updated()
