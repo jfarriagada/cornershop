@@ -24,7 +24,7 @@ $ pip install -r requirements.txt
 $ python manage.py migrate
 ```
 
-## Setup load initial data (Order matters)
+## Setup load initial data (Order matters) or "one click"
 ```shell
 $ python manage.py loaddata menu/fixtures/users.json
 $ python manage.py loaddata menu/fixtures/trader_profile.json
@@ -32,6 +32,11 @@ $ python manage.py loaddata menu/fixtures/employees.json
 $ python manage.py loaddata menu/fixtures/menu.json
 $ python manage.py loaddata menu/fixtures/option.json
 $ python manage.py loaddata menu/fixtures/order.json
+```
+
+```shell
+$ chmod +x one_click.sh
+$ ./one_click.sh
 ```
 
 ## Terminal 1 run django
