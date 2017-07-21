@@ -32,8 +32,13 @@ class EmployeeProfile(models.Model):
 
 class Menu(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)
+    send = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
+
+    def today(self):
+        qs = Menu.objects.all()
+        return qs
 
 
 class Option(models.Model):
@@ -46,9 +51,14 @@ class Option(models.Model):
 """
     SIGNALS to send email and slack
 """
+
 @receiver(post_save, sender=Menu)
 def post_menu(instance, **kwargs):
-    option = Option.objects.filter(menu__id=instance.id)
+    """
+        Menu slack and email send when Boolean send is True
+    """
+    if instance.send == True:
+        option = Option.objects.filter(menu__id=instance.id)
 
-    send_employee_mail(option)
-    send_slack(option)
+        send_employee_mail(option)
+        send_slack(option)

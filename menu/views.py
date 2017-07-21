@@ -3,12 +3,14 @@ from __future__ import unicode_literals
 
 from django.urls import reverse_lazy
 from django.views.generic import *
-from models import Menu, Option
-
+from django.shortcuts import render
+from models import *
+import datetime
 
 """
     MENU
 """
+
 
 class ListMenu(ListView):
     template_name = "menu.html"
@@ -26,7 +28,7 @@ list_menu = ListMenu.as_view()
 class CreateMenu(CreateView):
     template_name = 'menu_add.html'
     model = Menu
-    fields = ('created_at',)
+    fields = ('created_at','send',)
     success_url = reverse_lazy('list_menu')
 
     def form_valid(self, form):
@@ -38,7 +40,7 @@ create_menu = CreateMenu.as_view()
 
 class UpdateMenu(UpdateView):
     model = Menu
-    fields = ('updated_at',)
+    fields = ('updated_at','send',)
     template_name = 'menu_add.html'
     success_url = reverse_lazy('list_menu')
 
@@ -48,6 +50,7 @@ update_menu = UpdateMenu.as_view()
 """
     OPTION
 """
+
 
 class ListOption(ListView):
     """
@@ -65,8 +68,6 @@ class ListOption(ListView):
     def get_context_data(self, **kwargs):
         ctx = super(ListOption, self).get_context_data(**kwargs)
         ctx['menu'] = Menu.objects.get(pk=self.kwargs['pk'])
-        m = Menu.objects.get(pk=self.kwargs['pk'])
-        print(m.id)
         return ctx
 
 list_option = ListOption.as_view()
@@ -103,3 +104,25 @@ class UpdateOption(UpdateView):
         return reverse_lazy('list_option', kwargs={'pk': self.object.menu.pk})
 
 update_option = UpdateOption.as_view()
+
+
+"""
+    MENU TODAY
+"""
+
+
+def menu_today(request, uuid):
+    """
+        Menu's today
+    """
+    date = datetime.datetime.today()
+    menu = Menu.objects.get(created_at__year=date.year,
+                            created_at__month=date.month,
+                            created_at__day=date.day)
+
+    options = Option.objects.filter(menu=menu)
+
+    context = {'options': options}
+    template = "menu_today.html"
+    return render(request, template, context)
+

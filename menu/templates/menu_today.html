@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-6">
+
+        Hola! <br>
+        Dejo el menú de hoy :)<br><br>
+
+        <div>
+            {% for o in options %}
+                {{ o.description }} <br>
+            {% endfor %}
+            <br>
+        </div>
+
+        Tengan lindo día!
+    </div>
+</div>
+
+{% endblock %}
