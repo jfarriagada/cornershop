@@ -12,7 +12,7 @@ app.autodiscover_tasks()
 
 # redis broker
 app.conf.update(
-    BROKER_URL='redis://localhost:6379/0',  # Nota 4
+    BROKER_URL='redis://localhost:6379/0',
 )
 
 @app.task(bind=True)

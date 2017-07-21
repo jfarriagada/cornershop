@@ -18,6 +18,18 @@
 
         Tengan lindo día!
     </div>
+
+    {% if menu.choose_menu != True %}
+        <h5>No se permite elegir un menú después de las 11 AM CLT.</h5>
+    {% else %}
+        <div class="col-lg-6">
+            <form action="" method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Save" />
+            </form>
+        </div>
+    {% endif %}
+
 </div>
 
 {% endblock %}

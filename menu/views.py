@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 
 from django.urls import reverse_lazy
 from django.views.generic import *
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from datetime import datetime, time
 from models import *
-import datetime
+from forms import OrderForm
 
 """
     MENU
@@ -115,14 +116,24 @@ def menu_today(request, uuid):
     """
         Menu's today
     """
-    date = datetime.datetime.today()
+    date = datetime.today()
     menu = Menu.objects.get(created_at__year=date.year,
                             created_at__month=date.month,
                             created_at__day=date.day)
 
     options = Option.objects.filter(menu=menu)
 
-    context = {'options': options}
+    # Choose their preferred meal (until 11 AM CLT) and employee order form.
+    if request.method == 'POST' :
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('/#')
+    else:
+        form = OrderForm()
+
+    context = {'options': options, 'form':form, 'menu':menu}
     template = "menu_today.html"
     return render(request, template, context)
 
