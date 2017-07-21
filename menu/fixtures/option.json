@@ -44,7 +44,7 @@
   "pk": 5,
   "fields": {
     "menu": 2,
-    "description": "#opcion 1",
+    "description": "Opcion 1: Pastel de choclo, Ensalada y Postre",
     "created_at": "2017-07-21T03:38:57.338Z",
     "updated_at": "2017-07-21T03:38:57.338Z"
   }
@@ -54,7 +54,7 @@
   "pk": 6,
   "fields": {
     "menu": 2,
-    "description": "#opcion 2",
+    "description": "Opcion 2. Arroz con nugget de pollo, Ensalada y Postre",
     "created_at": "2017-07-21T03:39:06.535Z",
     "updated_at": "2017-07-21T03:39:06.535Z"
   }
@@ -64,7 +64,7 @@
   "pk": 7,
   "fields": {
     "menu": 2,
-    "description": "#opcion 3",
+    "description": "Opcion 3: Arroz con hamburguesa, Ensalada y Postre",
     "created_at": "2017-07-21T03:39:13.642Z",
     "updated_at": "2017-07-21T03:39:13.642Z"
   }

@@ -1,23 +1,30 @@
 # Cornershop's Backend Test by Farriagada
 
-## virtualenv
+## Virtualenv
 ```shell
 $ pip install virtualenv
 $ virtualenv venv_cornershop
-$ cd venv_cornershop
-$ source bin/activate
+$ source venv_cornershop/bin/activate
+```
+## Add file secret.py
+```python
+# -*- coding: utf-8 -*-
+
+EMAIL_HOST_USER = 'your_email'
+EMAIL_HOST_PASSWORD = 'your_email_password'
+DEFAULT_FROM_EMAIL = 'jfarriagada91@gmail.com'
+TOKEN_SLACK = 'your_token_slack'
 ```
 
-## project
+## Project
 ```shell
 $ git clone https://github.com/jfarriagada/cornershop.git
 $ cd cornershop/
 $ pip install -r requirements.txt
 $ python manage.py migrate
-$ python manage.py runserver
 ```
 
-## setup load initial data (Order matters)
+## Setup load initial data (Order matters)
 ```shell
 $ python manage.py loaddata menu/fixtures/users.json
 $ python manage.py loaddata menu/fixtures/trader_profile.json
@@ -42,12 +49,12 @@ redis-4.0.0$ src/redis-server
 celery worker -A cornershop.celery_app --loglevel=DEBUG
 ```
 
-## init
-ADMIN cornershop:cornershop
+## Login
+ADMIN cornershop:cornershop <br />
 USER nora:lavendedora
 
-## menú
+## Menu
 http://localhost:8000/menu/886313e1-3b8a-5372-9b90-0c9aee199e5d
 
-## test
+## Test
 $ python manage.py test menu
